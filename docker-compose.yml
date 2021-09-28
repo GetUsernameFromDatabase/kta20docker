@@ -1,4 +1,4 @@
-version: '3.8'
+version : '3.8'
 
 services:
     app:
@@ -18,7 +18,7 @@ services:
             MYSQL_ROOT_PASSWORD: example
         volumes:
             - dbdata:/var/lib/mysql
-        ports: 
+        ports:
             - 33061:3306
     # adminer:
     #     image: adminer

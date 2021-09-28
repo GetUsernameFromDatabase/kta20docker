@@ -22,7 +22,8 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->sentence
+            'content' => $this->faker->sentence,
+            'user_id' => $this->faker->biasedNumberBetween(1,10)
         ];
     }
 }

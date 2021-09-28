@@ -12,14 +12,14 @@
             <input type="submit" class="btn btn-primary" value="Post">
         </div>
     </form>
-    @foreach($posts as $key => $post)
+    @foreach($posts as $post)
         <div class="card mt-3 custom">
             <div class="card-body">
                 <p>{{ $post->content }}</p>
                 <a href="/post/{{$post->id}}">read more</a>
             </div>
             <div class="card-footer text-muted">
-                {{$post->created_at->diffForHumans()}}
+                <p>Posted by - {{\App\Models\User::find($post->user_id )->name}} ({{$post->created_at->diffForHumans()}})</p>
             </div>
         </div>
     @endforeach

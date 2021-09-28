@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Faker\Factory as Faker;
 
 class PostController extends Controller
 {
@@ -36,8 +37,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $faker = Faker::create();
+
         $post = new Post();
         $post->content = $request->input('content');
+        $post->user_id = $faker->biasedNumberBetween(1,10);
         $post->save();
         return response()->redirectTo('/');
     }

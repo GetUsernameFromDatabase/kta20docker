@@ -21,8 +21,9 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-       return [
-            'content' => $this->faker->text()
-       ];
+        return [
+            'content' => $this->faker->text(),
+            'user_id' => $this->faker->biasedNumberBetween(1,10)
+        ];
     }
 }
