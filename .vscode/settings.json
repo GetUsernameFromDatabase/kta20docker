@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 33061,
+      "driver": "MariaDB",
+      "username": "root",
+      "password": "example",
+      "name": "KTALaravel",
+      "database": "laravel"
+    }
+  ]
+}
