@@ -19,7 +19,7 @@
         <a href="/post/{{$post->id}}">read more</a>
     </div>
     <div class="card-footer text-muted">
-        <p>Posted by - {{\App\Models\User::find($post->user_id )->name}} ({{$post->created_at->diffForHumans()}})</p>
+        <p>Posted by - {{$post->user->name}} ({{$post->created_at->diffForHumans()}})</p>
     </div>
 </div>
 @endforeach
