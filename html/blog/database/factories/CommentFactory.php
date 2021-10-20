@@ -23,7 +23,6 @@ class CommentFactory extends Factory
     {
         return [
             'content' => $this->faker->sentence,
-            'user_id' => 1
         ];
     }
 }
