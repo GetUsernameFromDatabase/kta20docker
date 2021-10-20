@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class CommentSeeder extends Seeder
 {
+    private function getRandomUser()
+    {
+        return $randomUser = DB::table('users')
+            ->inRandomOrder()
+            ->first();
+    }
+
     /**
      * Run the database seeds.
      *
@@ -16,16 +23,12 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        Post::all()->each(function ($post){
-            Comment::factory(rand(0,5))->create(['post_id' =>$post->id]);
+        Post::all()->each(function ($post) {
+            Comment::factory(rand(0, 5))->create(['post_id' => $post->id, 'user_id' => $this->getRandomUser()->id]);
         });
 
-        Comment::all()->each(function($comment) {
-            $randomUser = DB::table('users')
-                ->inRandomOrder()
-                ->first();
-
-            $comment->user_id = $randomUser->id;
+        Comment::all()->each(function ($comment) {
+            $comment->user_id = $this->getRandomUser()->id;
         });
     }
 }
