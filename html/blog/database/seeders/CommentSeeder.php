@@ -26,9 +26,5 @@ class CommentSeeder extends Seeder
         Post::all()->each(function ($post) {
             Comment::factory(rand(0, 5))->create(['post_id' => $post->id, 'user_id' => $this->getRandomUser()->id]);
         });
-
-        Comment::all()->each(function ($comment) {
-            $comment->user_id = $this->getRandomUser()->id;
-        });
     }
 }
